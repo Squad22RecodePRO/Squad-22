@@ -5,3 +5,12 @@
 .bm-index{
     text-align: center;
 }
+.car-50{
+    width: 60%;
+    margin: auto;
+}
+.car-50 > div{
+    width: 300px;
+    height: 500px;
+    margin: auto;
+}
