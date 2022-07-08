@@ -1,58 +1,49 @@
 body{
     display: grid;
-    background-color: #586374;     
+    background-color: #f3d4b8;
+    /* background-color: #586374;     
     background-image: linear-gradient(315deg, #A1CCCC 0%, #586374 74%);
-  
+   */
     
 }
 
 .navbar{
-    background-color:white;     
-     
+    background-color: white;     
+    height: 18%;
 }
 
 .logo-claro {
-    width:  100px ;
-    margin-left: 1,5rem; /* 24px*/
+    width:  90px ;
+    /* margin-left: 1,5rem; 24px */
+    margin: 10px;
 }
 
 
 .texto {
     text-align: center;
-    color: #F2CDAC;
-    height: 300px;
-    padding: 30px;
+    color: #5f0637;    
 }
 
 p{
     font-size: 20px;
 }
-.row{
-    margin: 30px;
-    background-color: white;
-    border-radius: 20px;
- 
-}
 
 
 .atributos{
-    height: 350px;
+    height: 20%;
     padding: 20px;
-}
-
-.genero{
-    margin: 10px;
-    padding: 0 10px;
-}
-
+    margin: 30px;
+    border-radius: 20px;
+    background-color:#ffefe1;     
+} 
 
 .ficcao {
-    border-bottom:1px solid red;
+    border-bottom:1px solid #be1371;
     padding-left: 5px;
 }
 
 .nficcao{
-    border-bottom:1px solid blue;
+    border-bottom:1px solid #437dcf;
     padding-left: 5px; 
 }
 
@@ -62,5 +53,23 @@ p{
 }
 
 img{
-    margin: 8px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+footer{
+    height: 130px;
+    font-size: 14px;
+}
+
+footer a{
+    font-size: 16px;
+    text-decoration: none;
+    color:rgb(75, 75, 75);
+   
+}
+
+.redes{
+    background-color:#dfdfdf ;
+   
 }
