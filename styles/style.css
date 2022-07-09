@@ -1,8 +1,58 @@
-body{
-   background-color: #F2CDAC;
+body {
+    background-color: #593A2E;
+    background-image: linear-gradient(315deg, #593A2E 0%, #F2CDAC 74%);
 
 }
 
-h1{
-    font-size: 50px;
+.navbar-custom {
+    background-color: transparent !important;
+
+}
+
+.primepiroTexto {
+    text-align: center;
+    padding: 55px;
+}
+
+div>h1 {
+    font-size: 90px;
+    color: #593A2E;
+}
+
+div>h2 {
+    font-size: 40px;
+    margin-top: 60px;
+    color: #2A3340;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.divCorpo {}
+
+.divFoto {
+    margin-left: 15%;
+
+    display: inline-block;
+}
+
+.divTexto {
+
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.comoFunciona>h2 {
+    font-size: 90px;
+}
+
+.miniTexto {
+    font-size: 25px;
+}
+
+.teste{
+    padding: 100px;
 }
