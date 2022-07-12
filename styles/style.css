@@ -55,3 +55,19 @@ a:link {
 .teste{
     padding: 100px;
 }
+.logo-claro{
+    width: 100px;
+    margin-left: 1.5rem; /* 24px  */
+}
+.bm-index{
+    text-align: center;
+}
+.car-50{
+    width: 60%;
+    margin: auto;
+}
+.car-50 > div{
+    width: 240px;
+    height: 400px;
+    margin: auto;
+}
