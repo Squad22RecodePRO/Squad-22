@@ -31,23 +31,8 @@ p{
     
 }
 
-img{
+.img-livro{
     margin-bottom: 20px;
     margin-left: 10px;
 }
 
-footer{
-    height: 130px;
-    font-size: 14px;
-}
-
-footer a{
-    font-size: 16px;
-    text-decoration: none;
-    color:rgb(75, 75, 75);
-   
-}
-
-.redes{
-    background-color:#dfdfdf ; 
-}
