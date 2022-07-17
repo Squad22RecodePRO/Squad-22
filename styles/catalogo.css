@@ -1,21 +1,6 @@
 body{
     display: grid;
-    background-color: #f3d4b8;
-    /* background-color: #586374;     
-    background-image: linear-gradient(315deg, #A1CCCC 0%, #586374 74%);
-   */
     
-}
-
-.navbar{
-    background-color: white;     
-    height: 18%;
-}
-
-.logo-claro {
-    width:  90px ;
-    /* margin-left: 1,5rem; 24px */
-    margin: 10px;
 }
 
 
