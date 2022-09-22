@@ -1,21 +1,19 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO {
+public class LoginDAO {
 
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Usuario usuario) {
+	public void save(Login login) {
 
-		String sql = "INSERT INTO Usuario (Nome, Email, Data_nasc, Id_permissao)" + " VALUES(?,?,?,?)";
+		String sql = "INSERT INTO Login (Login, Senha, Id_usuario)" + " VALUES(?,?,?)";
 
 		try {
 		
@@ -23,14 +21,11 @@ public class UsuarioDAO {
 
 			pstm = conn.prepareStatement(sql);
 			
-			pstm.setString(1, usuario.getNome());
+			pstm.setString(1, login.getLogin());
 			
-			pstm.setString(2, usuario.getEmail());			
-			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			pstm.setDate(3, new Date(dateFormat.parse(usuario.getDataNasc()).getTime()));
-			
-			pstm.setInt(4, usuario.getPermissao().getId());
+			pstm.setString(2, login.getSenha());			
+						
+			pstm.setInt(3, login.getUsuario().getId());
 		
 			pstm.execute();
 
@@ -40,6 +35,7 @@ public class UsuarioDAO {
 			
 			try {
 				if (pstm != null) {
+
 					pstm.close();
 				}
 
@@ -48,13 +44,14 @@ public class UsuarioDAO {
 				}
 
 			} catch (Exception e) {
+
 				e.printStackTrace();
 			}
 		}
 	}
 
 	public void removeById(int id) {
-		String sql = "DELETE FROM Usuario WHERE Id_usuario = ?";
+		String sql = "DELETE FROM Login WHERE Id_login = ?";
 
 		try {
 			conn = conexao.createConnectionToMySQL();
@@ -69,25 +66,21 @@ public class UsuarioDAO {
 		}
 	}
 
-	public void update(Usuario usuario) {
+	public void update(Login login) {
 
-		String sql = "UPDATE Usuario SET Nome = ?, Email = ?, Data_nasc = ?, Id_permissao = ?" + " WHERE Id_usuario = ?";
+		String sql = "UPDATE Login SET Login = ?, Senha = ?, Id_usuario = ?" + " WHERE Id_login = ?";
 
 		try {
 			conn = conexao.createConnectionToMySQL();
-
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, usuario.getNome());
+			pstm.setString(1, login.getLogin());
 			
-			pstm.setString(2, usuario.getEmail());
-			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			pstm.setDate(3, new Date(dateFormat.parse(usuario.getDataNasc()).getTime()));
-			
-			pstm.setInt(4, usuario.getPermissao().getId());
+			pstm.setString(2, login.getSenha());
+						
+			pstm.setInt(3, login.getUsuario().getId());
 
-			pstm.setInt(5, usuario.getId());
+			pstm.setInt(4, login.getId());
 			
 			pstm.execute();
 
@@ -109,11 +102,11 @@ public class UsuarioDAO {
 		}
 	}
 
-	public List<Usuario> getUsuario() {
+	public List<Login> getLogin() {
 
-		String sql = "SELECT * FROM Usuario";
+		String sql = "SELECT * FROM Login";
 
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+		List<Login> logins = new ArrayList<Login>();
 
 		ResultSet rset = null;
 
@@ -125,23 +118,20 @@ public class UsuarioDAO {
 
 			while (rset.next()) {
 
+				Login login = new Login();
 				Usuario usuario = new Usuario();
-				Permissao permissao = new Permissao();
 				
-				usuario.setPermissao(permissao);
+				login.setUsuario(usuario);
 
-				usuario.setId(rset.getInt("Id_usuario"));
+				login.setId(rset.getInt("Id_login"));
 
-				usuario.setNome(rset.getString("Nome"));
+				login.setLogin(rset.getString("Login"));
 
-				usuario.setEmail(rset.getString("Email"));
-
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-				usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
+				login.setSenha(rset.getString("Senha"));
 				
-				usuario.getPermissao().setId((rset.getInt("Id_permissao")));
+				login.getUsuario().setId((rset.getInt("Id_usuario")));
 
-				usuarios.add(usuario);
+				logins.add(login);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,15 +156,16 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}
-		return usuarios;
+
+		return logins;
 	}
 
-	public Usuario getUsuarioById(int id) {
+	public Login getLoginById(int id) {
 
-		String sql = "SELECT * FROM Usuario where Id_usuario = ?";
+		String sql = "SELECT * FROM Login where Id_login = ?";
+		Login login = new Login();
 		Usuario usuario = new Usuario();
-		Permissao permissao = new Permissao();
-
+		
 		ResultSet rset = null;
 
 		try {
@@ -184,15 +175,13 @@ public class UsuarioDAO {
 			rset = pstm.executeQuery();
 
 			rset.next();
-			
-			usuario.setPermissao(permissao);
 
-			usuario.setNome(rset.getString("Nome"));
-			usuario.setEmail(rset.getString("Email"));
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
-			usuario.getPermissao().setId((rset.getInt("Id_permissao")));
-			usuario.setId(rset.getInt("Id_usuario"));
+			login.setUsuario(usuario);
+			
+			login.setLogin(rset.getString("Login"));
+			login.setSenha(rset.getString("Senha"));
+			login.getUsuario().setId((rset.getInt("Id_usuario")));
+			login.setId(rset.getInt("Id_login"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -211,8 +200,6 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}
-		return usuario;
+		return login;
 	}
 }
-
-

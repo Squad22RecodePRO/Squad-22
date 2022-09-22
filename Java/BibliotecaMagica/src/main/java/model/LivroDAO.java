@@ -1,37 +1,31 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO {
+public class LivroDAO {
 
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Usuario usuario) {
-
-		String sql = "INSERT INTO Usuario (Nome, Email, Data_nasc, Id_permissao)" + " VALUES(?,?,?,?)";
+	public void save(Livro livro) {
+		
+		String sql = "INSERT INTO Livro (Autor, Titulo, Id_genero)" + " VALUES(?,?,?)";
 
 		try {
 		
 			conn = conexao.createConnectionToMySQL();
-
 			pstm = conn.prepareStatement(sql);
 			
-			pstm.setString(1, usuario.getNome());
+			pstm.setString(1, livro.getAutor());
 			
-			pstm.setString(2, usuario.getEmail());			
+			pstm.setString(2, livro.getTitulo());			
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			pstm.setDate(3, new Date(dateFormat.parse(usuario.getDataNasc()).getTime()));
+			pstm.setInt(3, livro.getGenero().getId_genero());			
 			
-			pstm.setInt(4, usuario.getPermissao().getId());
-		
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -54,10 +48,11 @@ public class UsuarioDAO {
 	}
 
 	public void removeById(int id) {
-		String sql = "DELETE FROM Usuario WHERE Id_usuario = ?";
+		String sql = "DELETE FROM Livro WHERE Id_livro = ?";
 
 		try {
 			conn = conexao.createConnectionToMySQL();
+
 			pstm = conn.prepareStatement(sql);
 
 			pstm.setInt(1, id);
@@ -69,25 +64,22 @@ public class UsuarioDAO {
 		}
 	}
 
-	public void update(Usuario usuario) {
+	public void update(Livro livro) {
 
-		String sql = "UPDATE Usuario SET Nome = ?, Email = ?, Data_nasc = ?, Id_permissao = ?" + " WHERE Id_usuario = ?";
+		String sql = "UPDATE Livro SET Autor = ?, Titulo = ?, Id_genero = ?" + " WHERE Id_livro = ?";
 
 		try {
 			conn = conexao.createConnectionToMySQL();
 
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, usuario.getNome());
+			pstm.setString(1,livro.getAutor());
 			
-			pstm.setString(2, usuario.getEmail());
+			pstm.setString(2, livro.getTitulo());
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			pstm.setDate(3, new Date(dateFormat.parse(usuario.getDataNasc()).getTime()));
-			
-			pstm.setInt(4, usuario.getPermissao().getId());
-
-			pstm.setInt(5, usuario.getId());
+			pstm.setInt(3, livro.getGenero().getId_genero());
+		
+			pstm.setInt(4, livro.getId_livro());
 			
 			pstm.execute();
 
@@ -96,6 +88,7 @@ public class UsuarioDAO {
 		} finally {
 			try {
 				if (pstm != null) {
+
 					pstm.close();
 				}
 
@@ -104,16 +97,17 @@ public class UsuarioDAO {
 				}
 
 			} catch (Exception e) {
+
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public List<Usuario> getUsuario() {
+	public List<Livro> getLivros() {
 
-		String sql = "SELECT * FROM Usuario";
+		String sql = "select * from livro_completo;";
 
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+		List<Livro> livros = new ArrayList<Livro>();
 
 		ResultSet rset = null;
 
@@ -125,23 +119,22 @@ public class UsuarioDAO {
 
 			while (rset.next()) {
 
-				Usuario usuario = new Usuario();
-				Permissao permissao = new Permissao();
+				Livro livro = new Livro();
+				Genero genero = new Genero();
 				
-				usuario.setPermissao(permissao);
-
-				usuario.setId(rset.getInt("Id_usuario"));
-
-				usuario.setNome(rset.getString("Nome"));
-
-				usuario.setEmail(rset.getString("Email"));
-
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-				usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
+				genero.setGenero(rset.getString("genero"));
 				
-				usuario.getPermissao().setId((rset.getInt("Id_permissao")));
+				livro.setGenero(genero);
 
-				usuarios.add(usuario);
+				livro.setId_livro((rset.getInt("id_livro")));
+	
+				livro.setAutor((rset.getString("Autor")));
+
+				livro.setTitulo((rset.getString("Titulo")));
+				
+				livro.getGenero().setId_genero((rset.getInt("Id_genero")));
+
+				livros.add(livro);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,14 +159,15 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}
-		return usuarios;
+
+		return livros;
 	}
 
-	public Usuario getUsuarioById(int id) {
+	public Livro getLivroById(int id) {
 
-		String sql = "SELECT * FROM Usuario where Id_usuario = ?";
-		Usuario usuario = new Usuario();
-		Permissao permissao = new Permissao();
+		String sql = "select * from livro_completo where Id_livro = ?";
+		Livro livro = new Livro();
+		Genero genero = new Genero();
 
 		ResultSet rset = null;
 
@@ -185,14 +179,18 @@ public class UsuarioDAO {
 
 			rset.next();
 			
-			usuario.setPermissao(permissao);
+			genero.setGenero(rset.getString("genero"));
+			
+			livro.setGenero(genero);
 
-			usuario.setNome(rset.getString("Nome"));
-			usuario.setEmail(rset.getString("Email"));
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
-			usuario.getPermissao().setId((rset.getInt("Id_permissao")));
-			usuario.setId(rset.getInt("Id_usuario"));
+			livro.setAutor((rset.getString("Autor")));
+			
+			livro.setTitulo((rset.getString("Titulo")));
+			
+			livro.setId_livro((rset.getInt("id_livro")));
+			
+			livro.getGenero().setId_genero((rset.getInt("id_genero")));
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -211,8 +209,8 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}
-		return usuario;
+		return livro;
 	}
-}
 
+}
 

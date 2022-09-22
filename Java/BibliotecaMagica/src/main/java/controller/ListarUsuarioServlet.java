@@ -16,12 +16,13 @@ import model.UsuarioDAO;
 
 @WebServlet("/home")
 public class ListarUsuarioServlet extends HttpServlet {
+
+/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-  @Override
+
+@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		UsuarioDAO usdao = new UsuarioDAO();		

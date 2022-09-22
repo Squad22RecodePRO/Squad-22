@@ -35,6 +35,10 @@
 			<p>
 				<input type="text" name="dataNasc" value="${usuario.dataNasc}">
 			</p>
+			<p>Id permissão:</p>
+			<p>
+				<input type="number" name="permissao" value="${usuario.permissao}">
+			</p>
 			<button type="submit" class="btn btn-success">Atualizar</button>
 		</form>
 		

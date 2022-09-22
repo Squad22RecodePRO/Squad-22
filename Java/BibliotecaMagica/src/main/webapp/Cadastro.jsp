@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +44,11 @@
 				</p>
 
 				<p>
+					<label for="data">Id permissao:</label> <input type="number"
+						id="data" name="permissao" size="15" class="form-control" required>
+				</p>
+				
+				<p>
 					<input type="submit" value="Cadastrar Cliente"
 						class="btn btn-primary">
 				</p>
@@ -57,17 +63,19 @@
 					<th>Nome</th>
 					<th>Email</th>
 					<th>Data de nascimento</th>
+					<th>Id permissão</th>
 					<th>Açoes</th>
 				</tr>
 			</thead>
 			<tbody>
-				<jstl:forEach items="${listaUsuarios}" var="usuario">
+				<jstl:forEach items="${listaUsuarios}" var="batata">
 					<tr>
-						<td>${usuario.nome}</td>
-						<td>${usuario.email}</td>
-						<td>${usuario.dataNasc}</td>
-						<td><a href="editar?id=${usuario.id}" class="btn btn-success">Editar</a>
-							<a href="excluir?id=${usuario.id}"
+						<td>${batata.nome}</td>
+						<td>${batata.email}</td>
+						<td>${batata.dataNasc}</td>
+						<td>${batata.getPermissao().permissao}</td>
+						<td><a href="editar?id=${batata.id}" class="btn btn-success">Editar</a>
+							<a href="excluir?id=${batata.id}"
 							onclick="return confirm('Deseja Excluir?')"
 							class="btn btn-danger">Excluir</a></td>
 					</tr>

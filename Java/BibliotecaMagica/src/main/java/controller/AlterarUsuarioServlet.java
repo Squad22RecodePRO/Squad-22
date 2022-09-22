@@ -43,6 +43,7 @@ public class AlterarUsuarioServlet extends HttpServlet {
 		UsuarioAlterado.setNome(request.getParameter("nome"));
 		UsuarioAlterado.setEmail(request.getParameter("email"));
 		UsuarioAlterado.setDataNasc(request.getParameter("dataNasc"));
+		
 		UsuarioAlterado.setId(Integer.parseInt(request.getParameter("id")));
 
 		UsuarioDAO usd = new UsuarioDAO();
