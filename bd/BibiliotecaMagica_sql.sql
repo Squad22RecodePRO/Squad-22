@@ -28,9 +28,7 @@ Atributo VARCHAR(10)
 
 CREATE TABLE Genero (
 Id_genero INTEGER PRIMARY KEY AUTO_INCREMENT,
-Genero VARCHAR(20),
-Id_atributo INTEGER,
-FOREIGN KEY(Id_atributo) REFERENCES Atributo (Id_atributo)
+Genero VARCHAR(20)
 );
 
 CREATE TABLE Login (
@@ -85,3 +83,6 @@ ALTER TABLE Usuario ADD FOREIGN KEY(Id_permissao) REFERENCES Permissao (Id_permi
  
 select * from Usuario;
 select * from Login;
+
+create view livro_completo as select 
+l.Id_livro,l.Id_genero, g.genero, l.Autor,l.Titulo from genero g, livro l where l.Id_genero = g.Id_genero;
