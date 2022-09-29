@@ -81,8 +81,18 @@ Tipo VARCHAR(20)
 ALTER TABLE Usuario ADD column Id_permissao INTEGER;
 ALTER TABLE Usuario ADD FOREIGN KEY(Id_permissao) REFERENCES Permissao (Id_permissao);
  
-select * from Usuario;
-select * from Login;
+select * from permissao;
+select * from login_completo;
 
-create view livro_completo as select 
-l.Id_livro,l.Id_genero, g.genero, l.Autor,l.Titulo from genero g, livro l where l.Id_genero = g.Id_genero;
+create view livro_completo 
+as select l.Id_livro,l.Id_genero, g.genero, l.Autor, l.Titulo 
+from genero g, livro l where l.Id_genero = g.Id_genero;
+
+create view usuario_completo
+as select u.Id_usuario, u.Email, u.Nome, u.Data_nasc, p.Id_permissao, p.Tipo 
+from usuario u, permissao p where u.Id_permissao = p.Id_permissao order by u.Id_usuario asc;
+
+create view login_completo
+as select l.Id_login, l.Login, l.Senha, u.Id_usuario, u.Email 
+from login l, usuario u where l.Id_usuario = u.Id_usuario order by l.Id_login asc;
+
