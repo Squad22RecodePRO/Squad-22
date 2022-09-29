@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Alterar gênero: ${genero.genero}</title>
+<title>Alterar login: ${login.login}</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -34,7 +34,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-						<a class="nav-link mx-2" href="listarUsuario">Usuários</a> <a
+					<a class="nav-link mx-2" href="listarUsuario">Usuários</a> <a
 						class="nav-link mx-2" href="listarLogin">Logins</a> <a
 						class="nav-link mx-2" href="listarPermissao">Permissões</a> <a
 						class="nav-link mx-2" href="listarGenero">Gêneros</a> <a
@@ -48,22 +48,39 @@
 
 
 	<div class="container">
-		<h4 class="text-center my-4">Alterar gênero: ${genero.genero}</h4>
-
+		<h4 class="text-center my-4">Alterar login: ${login.login}</h4>
 		<div class="container d-flex justify-content-center flex-wrap">
-			<form action="editarGenero" method="post"
-				class="form-control p-3" style="width: 500px;">
-				
-				<input type="hidden" name="id_genero" value="${genero.id_genero}">
+		
+			<form action="editarLogin" method="post" class="form-control p-3"
+				style="width: 500px;">
+
+				<input type="hidden" name="id" value="${login.id}">
 				<fieldset>
-					<div class="row">
+					<div class="row g-3">
 						<div class="form-group mb-3 col-12">
-							<label for="genero" class="form-label">Gênero: </label> 
-							<input type="text" name="genero" class="form-control"
-								value="${genero.genero}">
+							<label for="login" class="form-label">Login: </label> <input
+								type="text" name="login" class="form-control"
+								value="${login.login}">
 						</div>
 					</div>
-					<button type="submit" class="btn btn-outline-success">Atualizar</button>
+					<div class="row g-3">
+						<div class="form-group mb-3 col-12">
+							<label for="senha" class="form-label">Senha: </label> <input
+								type="text" name="senha" class="form-control"
+								value="${login.senha}">
+						</div>
+					</div>
+					<div class="row g-3">
+						<div class="form-group col-12">
+							<label for="usuario" class="form-label">Id usuário </label> <input
+								type="number" name="usuario" class="form-control"
+								value="${login.getUsuario().id}">
+						</div>
+					</div>
+					<div class="form-group mb-3 float-end">
+					<a href="listarUsuario" class="link-secondary">Consultar usuários </a>
+				</div>
+					<button type="submit" class="mt-4 btn btn-outline-success">Atualizar</button>
 				</fieldset>
 			</form>
 		</div>

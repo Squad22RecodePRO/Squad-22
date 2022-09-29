@@ -1,12 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Permissao;
 import model.Usuario;
 import model.UsuarioDAO;
 
@@ -18,14 +20,16 @@ public class InserirUsuarioServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String dataNasc = request.getParameter("dataNasc");
-		int permissao = Integer.parseInt(request.getParameter("permissao"));
+		int idPermissao = Integer.parseInt(request.getParameter("permissao"));
 		
 		Usuario usuarioObj = new Usuario();
+		Permissao permissaoObj = new Permissao();
 				
 		usuarioObj.setNome(nome);
 		usuarioObj.setEmail(email);		
 		usuarioObj.setDataNasc(dataNasc);	
-		usuarioObj.getPermissao().setId(permissao);
+		usuarioObj.setPermissao(permissaoObj);
+		usuarioObj.getPermissao().setId(idPermissao);
 				
 		UsuarioDAO udao = new UsuarioDAO();		
 		udao.save(usuarioObj);

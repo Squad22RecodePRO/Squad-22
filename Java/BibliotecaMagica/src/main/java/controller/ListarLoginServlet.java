@@ -16,20 +16,23 @@ import model.LoginDAO;
 
 @WebServlet("/listarLogin")
 public class ListarLoginServlet extends HttpServlet {
+
+	/**
+		 * 
+		 */
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 		List<Login> logins = new ArrayList<Login>();
-		LoginDAO ldao = new LoginDAO();		
-		logins = ldao.getLogin();		
+		LoginDAO ldao = new LoginDAO();
+		logins = ldao.getLogin();
 		request.setAttribute("listaLogins", logins);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CadastroLogin.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CadastrarLogin.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 }

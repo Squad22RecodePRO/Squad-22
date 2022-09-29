@@ -81,10 +81,10 @@ public class PermissaoDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		} finally {
 			try {
 				if (pstm != null) {
-
 					pstm.close();
 				}
 
@@ -93,7 +93,6 @@ public class PermissaoDAO {
 				}
 
 			} catch (Exception e) {
-
 				e.printStackTrace();
 			}
 		}
@@ -118,9 +117,9 @@ public class PermissaoDAO {
 
 				Permissao permissao = new Permissao();
 
-				permissao.setId(rset.getInt("id"));
+				permissao.setId(rset.getInt("Id_permissao"));
 
-				permissao.setTipo(rset.getString("tipo"));
+				permissao.setTipo(rset.getString("Tipo"));
 
 				permissoes.add(permissao);
 			}
@@ -169,8 +168,8 @@ public class PermissaoDAO {
 
 			rset.next();
 
-			permissao.setTipo(rset.getString("tipo"));
-			permissao.setId(rset.getInt("id"));
+			permissao.setTipo(rset.getString("Tipo"));
+			permissao.setId(rset.getInt("Id_permissao"));
 
 		} catch (Exception e) {
 			e.printStackTrace();

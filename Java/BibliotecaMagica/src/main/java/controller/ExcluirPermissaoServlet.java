@@ -8,24 +8,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.UsuarioDAO;
+import model.PermissaoDAO;
 
-@WebServlet("/excluirUsuario")
-public class ExcluirUsuarioServlet extends HttpServlet {
-
-	/**
-	 * 
-	 */
+/**
+ * Servlet implementation class ExcluirPermissaoServlet
+ */
+@WebServlet("/excluirPermissao")
+public class ExcluirPermissaoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int idUsuario = Integer.parseInt(req.getParameter("id"));
 		
-		UsuarioDAO udao = new UsuarioDAO();
+		int idPermissao = Integer.parseInt(req.getParameter("id"));		
 
-		udao.removeById(idUsuario);
+		PermissaoDAO pdao = new PermissaoDAO();
 
-		resp.sendRedirect("listarUsuario");
+		pdao.removeById(idPermissao);
+
+		resp.sendRedirect("listarPermissao");
 	}
+
+
 }

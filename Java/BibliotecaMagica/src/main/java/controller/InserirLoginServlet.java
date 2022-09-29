@@ -21,14 +21,14 @@ public class InserirLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-		int idUsuario = Integer.parseInt(request.getParameter("usuario"));
+		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 		
 		Login login1 = new Login();
-		Usuario usuario1 = new Usuario();
+		Usuario usuario = new Usuario();
 				
 		login1.setLogin(login);
 		login1.setSenha(senha);
-		login1.setUsuario(usuario1);
+		login1.setUsuario(usuario);
 		login1.getUsuario().setId(idUsuario);
 				
 		LoginDAO ldao = new LoginDAO();		

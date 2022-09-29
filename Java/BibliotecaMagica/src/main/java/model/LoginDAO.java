@@ -104,7 +104,7 @@ public class LoginDAO {
 
 	public List<Login> getLogin() {
 
-		String sql = "SELECT * FROM Login";
+		String sql = "SELECT * FROM login_completo";
 
 		List<Login> logins = new ArrayList<Login>();
 
@@ -130,6 +130,8 @@ public class LoginDAO {
 				login.setSenha(rset.getString("Senha"));
 				
 				login.getUsuario().setId((rset.getInt("Id_usuario")));
+				
+				login.getUsuario().setEmail((rset.getString("Email")));
 
 				logins.add(login);
 			}
@@ -162,7 +164,7 @@ public class LoginDAO {
 
 	public Login getLoginById(int id) {
 
-		String sql = "SELECT * FROM Login where Id_login = ?";
+		String sql = "SELECT * FROM login_completo where Id_login = ?";
 		Login login = new Login();
 		Usuario usuario = new Usuario();
 		
@@ -181,6 +183,7 @@ public class LoginDAO {
 			login.setLogin(rset.getString("Login"));
 			login.setSenha(rset.getString("Senha"));
 			login.getUsuario().setId((rset.getInt("Id_usuario")));
+			login.getUsuario().setEmail((rset.getString("Email")));
 			login.setId(rset.getInt("Id_login"));
 
 		} catch (Exception e) {

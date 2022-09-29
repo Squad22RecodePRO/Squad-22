@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Usuários</title>
+<title>Permissões</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,8 +17,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 	crossorigin="anonymous"></script>
-</head>
 
+
+</head>
 <body>
 	<!-- Início do navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,87 +47,58 @@
 		</div>
 	</nav>
 	<!-- Fim do navbar -->
+	
 
 	<!-- Início do formulário cadastro -->
-	<h3 class="text-center my-4">Usuários</h3>
-
+	<h3 class="text-center my-4">Permissões</h3>
 	<div class="container d-flex justify-content-center flex-wrap">
-		<form action="InserirUsuario" method="post" class="form-control p-3"
-			style="width: 600px;">
+	
+		<form action="InserirPermissao" method="post" class="form-control p-3"
+			style="width: 500px;">
 
 			<fieldset>
 				<legend>Dados de cadastro</legend>
 
 				<div class="row g-3">
 					<div class="form-group mb-3 col-12">
-						<label for="nome" class="form-label">Nome: </label> <input
-							type="text" id="nome" name="nome" class="form-control" required>
+						<label for="tipo" class="form-label">Tipo: </label> <input
+							type="text" id="tipo" name="tipo" class="form-control" required>
 					</div>
 				</div>
-
-				<div class="row g-3">
-					<div class="form-group mb-3 col-12">
-						<label for="email" class="form-label">Email: </label> <input
-							type="email" id="email" name="email" class="form-control"
-							required>
-					</div>
-				</div>
-
-				<div class="row g-3">
-					<div class="form-group col-6">
-						<label for="data" class="form-label">Data de nascimento: </label>
-						<input type="text" id="data" name="dataNasc" class="form-control"
-							required>
-					</div>
-
-					<div class="form-group col-6">
-						<label for="permissao" class="form-label">Id permissão </label> <input
-							type="number" id="permissao" name="permissao"
-							class="form-control" required>
-					</div>
-				</div>
-				<div class="form-group mb-3 float-end">
-					<a href="listarPermissao" class="link-secondary">Consultar permissões </a>
-				</div>
-
-				<div class="col-12 mt-4">
+				
+				<div class="col-12">
 					<button type="submit" class="btn btn-outline-success">Cadastrar</button>
 				</div>
 			</fieldset>
 		</form>
 		<!-- Fim formulário cadastro -->
+		
 
 		<!-- Início tabela mostrar -->
 		<div class="container mt-5 mb-5">
 
-			<h4 class="mb-2 text-center">Usuários cadastrados</h4>
+			<h4 class="mb-2 text-center">Permissões cadastradas</h4>
 			<div class="table-responsive d-flex justify-content-center">
 				<table class="mt-3 table table-bordered align-middle text-center"
-					style="width: 1000px;">
+					style="width: 600px;">
 					
 					<thead class="table-light">
 						<tr>
 							<th>Id</th>
-							<th>Nome</th>
-							<th>Email</th>
-							<th>Data de nascimento</th>
-							<th>Permissão</th>
+							<th>Tipo</th>
 							<th>Açoes</th>
 						</tr>
 					</thead>
 					<tbody>
-						<jstl:forEach items="${listaUsuarios}" var="usuario">
+						<jstl:forEach items="${listaPermissoes}" var="permissao">
 							<tr>
-								<td>${usuario.id}</td>
-								<td>${usuario.nome}</td>
-								<td>${usuario.email}</td>
-								<td>${usuario.dataNasc}</td>
-								<td>${usuario.getPermissao().tipo}</td>
-								
+								<td>${permissao.id}</td>
+								<td>${permissao.tipo}</td>
+																
 								<td class="p-2">
-									<a href="editarUsuario?id=${usuario.id}"
+									<a href="editarPermisssao?id=${permissao.id}"
 									class="btn btn-outline-info me-2">Editar</a> 
-									<a	href="excluirUsuario?id=${usuario.id}"
+									<a	href="excluirPermissao?id=${permissao.id}"
 									onclick="return confirm('Deseja Excluir?')"
 									class="btn btn-outline-danger">Excluir</a>
 								</td>

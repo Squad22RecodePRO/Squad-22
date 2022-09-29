@@ -61,7 +61,7 @@ public class GeneroDAO {
 
 	public void update(Genero genero) {
 
-		String sql = "UPDATE Genero SET Genero = ?" + " WHERE Id_genero = ?";
+		String sql = "UPDATE Genero SET Genero = ? WHERE Id_genero = ?";
 
 		try {
 			conn = conexao.createConnectionToMySQL();

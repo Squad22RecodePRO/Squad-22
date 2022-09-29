@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Alterar gênero: ${genero.genero}</title>
+<title>Alterar permissão: ${permissao.tipo}</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -48,19 +48,19 @@
 
 
 	<div class="container">
-		<h4 class="text-center my-4">Alterar gênero: ${genero.genero}</h4>
+		<h4 class="text-center my-4">Alterar permissão: ${permissao.tipo}</h4>
 
 		<div class="container d-flex justify-content-center flex-wrap">
-			<form action="editarGenero" method="post"
+			<form action="editarPermisssao" method="post"
 				class="form-control p-3" style="width: 500px;">
 				
-				<input type="hidden" name="id_genero" value="${genero.id_genero}">
+				<input type="hidden" name="id" value="${permissao.id}">
 				<fieldset>
 					<div class="row">
 						<div class="form-group mb-3 col-12">
-							<label for="genero" class="form-label">Gênero: </label> 
-							<input type="text" name="genero" class="form-control"
-								value="${genero.genero}">
+							<label for="permissao" class="form-label">Permissão: </label> 
+							<input type="text" name="permissao" class="form-control"
+								value="${permissao.tipo}">
 						</div>
 					</div>
 					<button type="submit" class="btn btn-outline-success">Atualizar</button>

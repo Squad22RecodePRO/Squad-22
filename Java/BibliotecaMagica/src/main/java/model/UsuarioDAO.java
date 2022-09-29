@@ -111,7 +111,7 @@ public class UsuarioDAO {
 
 	public List<Usuario> getUsuario() {
 
-		String sql = "SELECT * FROM Usuario";
+		String sql = "SELECT * FROM usuario_completo";
 
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -140,6 +140,8 @@ public class UsuarioDAO {
 				usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
 				
 				usuario.getPermissao().setId((rset.getInt("Id_permissao")));
+				
+				usuario.getPermissao().setTipo((rset.getString("Tipo")));
 
 				usuarios.add(usuario);
 			}
@@ -171,7 +173,7 @@ public class UsuarioDAO {
 
 	public Usuario getUsuarioById(int id) {
 
-		String sql = "SELECT * FROM Usuario where Id_usuario = ?";
+		String sql = "SELECT * FROM usuario_completo where Id_usuario = ?";
 		Usuario usuario = new Usuario();
 		Permissao permissao = new Permissao();
 
@@ -192,6 +194,7 @@ public class UsuarioDAO {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			usuario.setDataNasc(dateFormat.format(rset.getDate("Data_nasc")));
 			usuario.getPermissao().setId((rset.getInt("Id_permissao")));
+			usuario.getPermissao().setTipo((rset.getString("Tipo")));
 			usuario.setId(rset.getInt("Id_usuario"));
 
 		} catch (Exception e) {
