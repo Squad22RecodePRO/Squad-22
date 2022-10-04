@@ -97,38 +97,23 @@
 			
             <div class="row atributos">
                 <h3> <img class="img-livro" src="https://img.icons8.com/ios-filled/50/000000/brain.png" style="width:25px; height:25px;"
-                        class="l m-0 p-0"> Inteligência</h3>
+                        class="l m-0 p-0">Inteligência</h3>
 
-                <div class="col genero col-12 col-md-4 mb-2">
-                    <p class="ficcao">Ficção cientifica</p>
-                    
-	                  <jstl:forEach items="${livros}" var="livros">
-							<div class="card col-12 genero" style="width: 8rem;">
-				           		<img src="${imagem}" class="card-img-top" alt="Imagem do livro">
-				            	<div class="card-body">
-				              <p class="card-text">${livros.titulo}</p>
-				            	</div>
-				            </div>
-								
-						</jstl:forEach>
-						
-                </div>
-
-                <div class="col genero col-12 col-md-4">
-                    <p class="nficcao">Memórias e autobiografias</p>
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-
-                </div>
-
-                <div class="col genero col-12 col-md-4 ">
-                    <p class="nficcao">Tecnologia e ciência</p>
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-
-                </div>
+                <div class="row genero">
+                <p class="nficcao">Ficção</p>
+			        <div class="card col-2 genero" style="width: 12rem;">
+			            <img src="img/books/1984.jpg" class="card-img-top" alt="...">
+			            <div class="card-body">
+			              <p class="card-text">1984</p>
+			            </div>
+			          </div>
+			          <div class="card col-2 genero" style="width: 12rem;">
+			            <img src="img/books/metamorfose.jpg" class="card-img-top" alt="...">
+			            <div class="card-body">
+			              <p class="card-text">Metamorfose</p>
+			            </div>
+			          </div>
+			    </div>
 
             </div>
 
@@ -168,40 +153,7 @@
            
 
 
-            <div class="row atributos">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                    Criatividade
-                </h3>
-                <div class="col genero col-12 col-md-4">
-                    <p class="ficcao">Fantasia</p>
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-
-                </div>
-
-                <div class="col genero col-12 col-md-4">
-                    <p class="ficcao">Contos</p>
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-
-                </div>
-
-                <div class="col genero col-12 col-md-4">
-                    <p class="nficcao">Arte e Fotografia </p>
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-                    <img class="img-livro" src="img/livro.jpeg">
-
-                </div>
-
-            </div>
+            
         </div>
 
         <!-- Footer -->
