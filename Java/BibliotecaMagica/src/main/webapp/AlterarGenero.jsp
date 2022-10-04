@@ -34,11 +34,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link mx-2" href="">Usuários</a> <a
-						class="nav-link mx-2" href="CadastrarLogin.jsp">Logins</a> <a
-						class="nav-link mx-2" href="#">Permissões</a> <a
+						<a class="nav-link mx-2" href="listarUsuario">Usuários</a> <a
+						class="nav-link mx-2" href="listarLogin">Logins</a> <a
+						class="nav-link mx-2" href="listarPermissao">Permissões</a> <a
 						class="nav-link mx-2" href="listarGenero">Gêneros</a> <a
-						class="nav-link mx-2" href="#">Livros</a>
+						class="nav-link mx-2" href="listarLivro">Livros</a>
 				</div>
 
 			</div>
@@ -63,7 +63,7 @@
 								value="${genero.genero}">
 						</div>
 					</div>
-					<button type="submit" class="btn btn-success">Atualizar</button>
+					<button type="submit" class="btn btn-outline-success">Atualizar</button>
 				</fieldset>
 			</form>
 		</div>

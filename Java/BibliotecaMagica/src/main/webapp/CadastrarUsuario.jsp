@@ -17,9 +17,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 	crossorigin="anonymous"></script>
-
-
 </head>
+
 <body>
 	<!-- Início do navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,7 +52,7 @@
 
 	<div class="container d-flex justify-content-center flex-wrap">
 		<form action="InserirUsuario" method="post" class="form-control p-3"
-			style="width: 700px;">
+			style="width: 600px;">
 
 			<fieldset>
 				<legend>Dados de cadastro</legend>
@@ -74,20 +73,23 @@
 				</div>
 
 				<div class="row g-3">
-					<div class="form-group mb-3 col-6">
+					<div class="form-group col-6">
 						<label for="data" class="form-label">Data de nascimento: </label>
 						<input type="text" id="data" name="dataNasc" class="form-control"
 							required>
 					</div>
 
-					<div class="form-group mb-3 col-6">
+					<div class="form-group col-6">
 						<label for="permissao" class="form-label">Id permissão </label> <input
 							type="number" id="permissao" name="permissao"
 							class="form-control" required>
 					</div>
 				</div>
+				<div class="form-group mb-3 float-end">
+					<a href="listarPermissao" class="link-secondary">Consultar permissões </a>
+				</div>
 
-				<div class="col-12">
+				<div class="col-12 mt-4">
 					<button type="submit" class="btn btn-outline-success">Cadastrar</button>
 				</div>
 			</fieldset>
@@ -100,10 +102,11 @@
 			<h4 class="mb-2 text-center">Usuários cadastrados</h4>
 			<div class="table-responsive d-flex justify-content-center">
 				<table class="mt-3 table table-bordered align-middle text-center"
-					style="width: 700px;">
+					style="width: 1000px;">
 					
 					<thead class="table-light">
 						<tr>
+							<th>Id</th>
 							<th>Nome</th>
 							<th>Email</th>
 							<th>Data de nascimento</th>
@@ -114,6 +117,7 @@
 					<tbody>
 						<jstl:forEach items="${listaUsuarios}" var="usuario">
 							<tr>
+								<td>${usuario.id}</td>
 								<td>${usuario.nome}</td>
 								<td>${usuario.email}</td>
 								<td>${usuario.dataNasc}</td>
@@ -132,6 +136,7 @@
 					</tbody>
 				</table>
 			</div>
+		</div>
 		</div>
 </body>
 </html>

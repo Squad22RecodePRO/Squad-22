@@ -72,14 +72,14 @@
 				</div>
 
 				<div class="row g-3">
-					<div class="form-group  col-8">
+					<div class="form-group  col-12">
 						<label for="titulo" class="form-label">Id do gênero:</label> <input
 							type="number" id="id_genero" name="id_genero"
 							class="form-control" required>
 					</div>
 					
 				</div>
-				<div class="form-group  col-12">
+				<div class="form-group  float-end"">
 					<a href="listarGenero" class="link-secondary">Consultar gêneros </a>
 				</div>
 				<div class="form-group mt-4 my-3 col-6">
