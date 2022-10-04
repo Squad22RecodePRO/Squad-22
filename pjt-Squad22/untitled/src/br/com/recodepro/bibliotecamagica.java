@@ -1,2 +1,5 @@
-package br.com.recodepro;public class bibliotecamagica {
+package br.com.recodepro;
+
+public class bibliotecamagica {
+
 }

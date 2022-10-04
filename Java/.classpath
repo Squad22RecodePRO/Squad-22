@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="main/java/" kind="src" path="BibliotecaMagica/src"/>
+	<classpathentry kind="src" path="BibliotecaMagica/src/main/java"/>
+	<classpathentry kind="output" path="BibliotecaMagica/build/classes"/>
+</classpath>

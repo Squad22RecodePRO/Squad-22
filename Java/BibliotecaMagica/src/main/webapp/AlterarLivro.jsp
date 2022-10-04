@@ -34,11 +34,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-				<a class="nav-link mx-2" href="listarUsuario">Usuários</a> <a
-						class="nav-link mx-2" href="listarLogin">Logins</a> <a
-						class="nav-link mx-2" href="listarPermissao">Permissões</a> <a
+					<a class="nav-link mx-2" href="">Usuários</a> <a
+						class="nav-link mx-2" href="CadastrarLogin.jsp">Logins</a> <a
+						class="nav-link mx-2" href="#">Permissões</a> <a
 						class="nav-link mx-2" href="listarGenero">Gêneros</a> <a
-						class="nav-link mx-2" href="listarLivro">Livros</a>
+						class="nav-link mx-2" href="#">Livros</a>
 				</div>
 
 			</div>
@@ -48,7 +48,7 @@
 
 
 	<div class="container">
-		<h4 class="text-center my-4">Alterar livro: ${livro.titulo}</h4>
+		<h5 class="text-center my-4">Alterar livro: ${livro.titulo}</h5>
 		<div class="container d-flex justify-content-center flex-wrap">
 
 			<form action="editarLivro" method="post" class="form-control p-3"
@@ -76,10 +76,10 @@
 						<input type="number" name="id_genero" class="form-control" value="${livro.getGenero().id_genero}">
 					</div>
 				</div>
-				<div class="form-group mb-4 float-end"">
+				<div class="form-group mb-4 col-12">
 					<a href="listarGenero" class="link-secondary">Consultar gêneros </a>
 				</div>
-				<button type="submit" class="mt-4 btn btn-outline-success">Atualizar</button>
+				<button type="submit" class="btn btn-success">Atualizar</button>
 			</form>
 		</div>
 	</div>

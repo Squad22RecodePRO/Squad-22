@@ -63,6 +63,7 @@ Id_livro INTEGER PRIMARY KEY AUTO_INCREMENT,
 Autor VARCHAR(80),
 Titulo VARCHAR(50),
 Id_genero INTEGER,
+Imagem VARCHAR(120),
 FOREIGN KEY(Id_genero) REFERENCES Genero (Id_genero)
 );
 

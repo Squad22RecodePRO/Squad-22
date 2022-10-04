@@ -1,0 +1,96 @@
+body {
+    background-color: #593A2E;
+    background-image: linear-gradient(315deg, #593A2E 0%, #F2CDAC 74%);
+
+}
+
+.navbar-custom {
+    background-color: transparent !important;
+
+}
+
+.primepiroTexto {
+    text-align: center;
+    padding: 55px;
+}
+
+div>h1 {
+    font-size: 90px;
+    color: #593A2E;
+}
+
+div>h2 {
+    font-size: 40px;
+    margin-top: 60px;
+    color: #2A3340;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+
+.divFoto {
+    margin-left: 15%;
+
+    display: inline-block;
+}
+
+.divTexto {
+
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.comoFunciona>h2 {
+    font-size: 90px;
+}
+
+.miniTexto {
+    font-size: 25px;
+}
+
+.teste{
+    padding: 100px;
+}
+/* Logo */
+.logo-padrao{
+    width: 100px;
+    margin-left: 1.5rem; /* 24px  */
+}
+
+.bm-index{
+    text-align: center;
+}
+.car-50{
+    width: 60%;
+    margin: auto;
+}
+.car-50 > div{
+    width: 240px;
+    height: 400px;
+    margin: auto;
+}
+
+/* Footer */
+footer{
+    height: 130px;
+    font-size: 14px;
+}
+
+footer a{
+    font-size: 16px;
+    text-decoration: none;
+    color:rgb(75, 75, 75);
+   
+}
+.redes{
+    background-color:#dfdfdf ; 
+}
+/* Footer icones de social media com color*/
+.bi{
+    color: #733F2D;
+    
+}
